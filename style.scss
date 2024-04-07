@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@100..900&display=swap');
+
+body {
+  margin: 0;
+  font-family: "Fira Sans", sans-serif;
+  ul, li {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+  }
+}
+.category-list {
+  width: 1160px;
+  margin: 0 auto;
+  .list-item {
+    background: #fff;
+    padding-left: 16px;
+    border: 1px solid #DFE4EF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    .item-label {
+      flex: 1;
+    }
+    .expand-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      margin-right: 14px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #D3D8DF;
+      transition-duration: 300ms;
+      user-select: none;
+    }
+    .move-icon {
+      align-self: stretch;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 16px;
+      user-select: none;
+    }
+  }
+  .category {
+    > .list-item .item-label {
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 16.2px;
+      padding-top: 16px;
+      padding-bottom: 16px;
+    }
+    .category-item > .list-item .item-label {
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 14.04px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+    ul {
+      padding-left: 16px;
+      min-height: 30px;
+      display: none;
+    }
+    &.expanded {
+      ul {
+        display: block;
+      }
+      .expand-icon {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  .draggable-source--is-dragging {
+    border-bottom: 5px #0066FF solid;
+  }
+  .draggable-mirror {
+    box-shadow: 0 3px 16px #0066FFB2;
+  }
+}

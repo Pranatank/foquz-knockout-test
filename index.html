@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <ul class="category-list" data-bind="foreach: list">
+    <li
+      class="category"
+      data-bind="attr: { 'data-category-key': key }, css: { 'category--draggable': draggable, expanded: expand }">
+        <div class="list-item" data-bind="click: $root.expandToggle">
+          <div class="expand-icon">
+            <img src="icons/arrow.svg" alt="expand">
+          </div>
+          <span class="item-label" data-bind="text: label"></span>
+          <div class="move-icon" data-bind="click: $root.setDraggable">
+            <img src="icons/move.svg" alt="expand" data-bind="hidden: draggable">
+            <img src="icons/move-active.svg" alt="expand" data-bind="visible: draggable">
+          </div>
+        </div>
+        <ul data-bind="foreach: items">
+          <li class="category-item" data-bind="attr: { 'data-item-key': $data }, css: { 'category-item--draggable': draggable }">
+            <div class="list-item">
+              <span class="item-label" data-bind="text: label"></span>
+              <div class="move-icon" data-bind="click: $root.setDraggable">
+                <img src="icons/move.svg" alt="expand" data-bind="hidden: draggable">
+                <img src="icons/move-active.svg" alt="expand" data-bind="visible: draggable">
+              </div>
+            </div>
+          </li>
+        </ul>
+    </li>
+  </ul>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@shopify/draggable/build/umd/index.min.js"></script>
+<script src="main.js"></script>
+</html>
